@@ -14,3 +14,7 @@ int Order::getPizzaAmount() const {
 
 Order::Order(Status status, Client *client, int pizzaAmount) : status(status), client(client),
                                                                pizzaAmount(pizzaAmount) {}
+
+void Order::setStatus(Status status) {
+    Order::status = status;
+}

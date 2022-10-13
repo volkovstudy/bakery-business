@@ -15,6 +15,8 @@ public:
     Status getStatus() const;
     Client *getClient() const;
     int getPizzaAmount() const;
+
+    void setStatus(Status status);
 };
 
 
