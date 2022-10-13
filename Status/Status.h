@@ -6,6 +6,7 @@ enum Status {
     ACCEPTED,
     COOKING,
     COOKED,
+    STORED,
     DELIVERING,
     DELIVERED
 };
