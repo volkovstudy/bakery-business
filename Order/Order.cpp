@@ -1,6 +1,8 @@
 #include "Order.h"
 
-Order::Order(Client *client, int pizzaAmount) : client(client), pizzaAmount(pizzaAmount) {}
+Status Order::getStatus() const {
+    return status;
+}
 
 Client *Order::getClient() const {
     return client;
@@ -9,3 +11,6 @@ Client *Order::getClient() const {
 int Order::getPizzaAmount() const {
     return pizzaAmount;
 }
+
+Order::Order(Status status, Client *client, int pizzaAmount) : status(status), client(client),
+                                                               pizzaAmount(pizzaAmount) {}
