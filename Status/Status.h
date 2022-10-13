@@ -1,0 +1,14 @@
+#ifndef BAKERY_BUSINESS_STATUS_H
+#define BAKERY_BUSINESS_STATUS_H
+
+
+enum Status {
+    ACCEPTED,
+    COOKING,
+    COOKED,
+    DELIVERING,
+    DELIVERED
+};
+
+
+#endif
