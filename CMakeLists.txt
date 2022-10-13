@@ -3,4 +3,4 @@ project(bakery_business)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(bakery_business main.cpp)
+add_executable(bakery_business main.cpp Baker/Baker.cpp Baker/Baker.h)
