@@ -13,5 +13,6 @@ const vector<Order*> &Storage::getOrders() const {
 void Storage::addOrder(Order *order) {
     if (occupancy < getCapacity()) {
         orders.push_back(order);
+        order->setStatus(Status::STORED);
     }
 }
