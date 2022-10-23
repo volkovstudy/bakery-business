@@ -1,11 +1,9 @@
 #include "Client.h"
 
-Client::Client(const string &fullName, const vector<Order> &orders) : fullName(fullName), orders(orders) {}
+#include <utility>
+
+Client::Client(string fullName) : fullName(std::move(fullName)) {}
 
 const string &Client::getFullName() const {
     return fullName;
-}
-
-const vector<Order> &Client::getOrders() const {
-    return orders;
 }

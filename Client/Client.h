@@ -3,19 +3,16 @@
 
 #include <string>
 #include <vector>
-#include "../Order/Order.h"
 
 using namespace std;
 
 class Client {
 private:
-    string fullName;
-    vector<Order> orders;
+    std::string fullName;
 public:
-    Client(const string &fullName, const vector<Order> &orders);
+    explicit Client(string fullName);
 
     const string &getFullName() const;
-    const vector<Order> &getOrders() const;
 };
 
 
