@@ -11,7 +11,7 @@ private:
 public:
     OrderProcessing(Staff *staff, Storage *storage);
 
-    void assignOrder();
+    void cookOrder();
     void storeOrder();
     void deliverOder();
 };
