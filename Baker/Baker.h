@@ -10,6 +10,8 @@ private:
 public:
     explicit Baker(int workExperience);
 
+    void cook() const;
+
     int getWorkExperience() const;
     Order *getOrder() const;
 
