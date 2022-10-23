@@ -13,7 +13,7 @@ public:
 
     void cookOrder(Order* order);
     void storeOrder(Order* order);
-    void deliverOder(Order* order);
+    void deliverOrder(Order* order);
 };
 
 
