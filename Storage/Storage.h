@@ -15,7 +15,7 @@ public:
     void addOrder(Order *order);
 
     int getCapacity() const;
-    const vector<Order*> &getOrders() const;
+    Order* getOrder();
 };
 
 

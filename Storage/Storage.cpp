@@ -6,13 +6,24 @@ int Storage::getCapacity() const {
     return capacity;
 }
 
-const vector<Order*> &Storage::getOrders() const {
-    return orders;
-}
-
 void Storage::addOrder(Order *order) {
     if (occupancy < getCapacity()) {
         orders.push_back(order);
         order->setStatus(Status::STORED);
     }
+}
+
+Order *Storage::getOrder() {
+    int lastOrderIndex;
+    if (orders.empty()) {
+        return nullptr;
+    } else {
+        lastOrderIndex = orders.size() - 1;
+    }
+
+    Order* order = orders.at(lastOrderIndex);
+
+    orders.pop_back();
+
+    return order;
 }
