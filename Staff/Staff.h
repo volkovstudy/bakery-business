@@ -17,6 +17,8 @@ public:
 
     void addCourier(Courier* courier);
     vector<Courier*> getCouriers();
+
+    void printInfo();
 };
 
 
