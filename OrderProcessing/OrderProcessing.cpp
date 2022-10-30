@@ -27,6 +27,16 @@ void OrderProcessing::cookOrder(Order *order) {
     baker->cook();
 }
 
+bool OrderProcessing::storeOrder(Order *order) {
+    if (order->getStatus() != Status::COOKED) return false;
+
+    storage->addOrder(order);
+
+    if (order->getStatus() != Status::STORED) return false;
+
+    return true;
+}
+
 Courier* getNextCourier(vector<Courier*> couriers) {
     if (couriers.size() <= nextCourierIndex) {
         nextCourierIndex = 0;

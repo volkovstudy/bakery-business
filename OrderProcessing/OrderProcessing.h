@@ -12,7 +12,7 @@ public:
     OrderProcessing(Staff *staff, Storage *storage);
 
     void cookOrder(Order* order);
-    void storeOrder(Order* order);
+    bool storeOrder(Order* order);
     void deliverOrders();
 };
 
