@@ -21,7 +21,7 @@ void Courier::takeAndDeliverOrders() {
 
         orders.push_back(order);
 
-        cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
+        cout << "Order #" << order->getId() << " is DELIVERING" << endl;
     }
 
     if (orders.empty()) return;
@@ -33,6 +33,6 @@ void Courier::takeAndDeliverOrders() {
 
         orders.pop_back();
 
-        cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
+        cout << "Order #" << order->getId() << " is DELIVERED" << endl;
     }
 }

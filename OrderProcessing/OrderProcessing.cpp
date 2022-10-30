@@ -30,7 +30,7 @@ void OrderProcessing::cookOrder(Order *order) {
     baker->cook();
 
     if (order->getStatus() == Status::COOKED) {
-        cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
+        cout << "Order #" << order->getId() << " is COOKED" << endl;
     }
 }
 
@@ -41,7 +41,7 @@ bool OrderProcessing::storeOrder(Order *order) {
 
     if (order->getStatus() != Status::STORED) return false;
 
-    cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
+    cout << "Order #" << order->getId() << " is STORED" << endl;
 
     return true;
 }
