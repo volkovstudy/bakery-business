@@ -1,4 +1,7 @@
 #include "Courier.h"
+#include <iostream>
+
+using namespace std;
 
 Courier::Courier(int trunkVolume, Storage *storage) : trunkVolume(trunkVolume), storage(storage) {}
 
@@ -17,6 +20,8 @@ void Courier::takeAndDeliverOrders() {
         order->setStatus(Status::DELIVERING);
 
         orders.push_back(order);
+
+        cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
     }
 
     if (orders.empty()) return;
@@ -27,5 +32,7 @@ void Courier::takeAndDeliverOrders() {
         order->setStatus(Status::DELIVERED);
 
         orders.pop_back();
+
+        cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
     }
 }
