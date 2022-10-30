@@ -1,6 +1,9 @@
 #include "OrderProcessing.h"
+#include <iostream>
 
 #define startIndex -1
+
+using namespace std;
 
 OrderProcessing::OrderProcessing(Staff *staff, Storage *storage) : staff(staff), storage(storage) {}
 
@@ -25,6 +28,10 @@ void OrderProcessing::cookOrder(Order *order) {
 
     baker->setOrder(order);
     baker->cook();
+
+    if (order->getStatus() == Status::COOKED) {
+        cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
+    }
 }
 
 bool OrderProcessing::storeOrder(Order *order) {
