@@ -5,6 +5,7 @@
 OrderProcessing::OrderProcessing(Staff *staff, Storage *storage) : staff(staff), storage(storage) {}
 
 int nextBakerIndex = startIndex;
+int nextCourierIndex = startIndex;
 
 Baker* getNextBaker(vector<Baker*> bakers) {
     if (bakers.size() <= nextBakerIndex) {
@@ -24,4 +25,21 @@ void OrderProcessing::cookOrder(Order *order) {
 
     baker->setOrder(order);
     baker->cook();
+}
+
+Courier* getNextCourier(vector<Courier*> couriers) {
+    if (couriers.size() <= nextCourierIndex) {
+        nextCourierIndex = 0;
+    } else {
+        nextCourierIndex++;
+    }
+
+    return couriers.at(nextCourierIndex);
+}
+
+void OrderProcessing::deliverOrders() {
+    vector<Courier*> couriers = staff->getCouriers();
+    Courier* courier = getNextCourier(couriers);
+
+    courier->takeAndDeliverOrders();
 }
