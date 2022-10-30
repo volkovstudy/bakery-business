@@ -6,6 +6,7 @@
 
 class Order {
 private:
+    int id;
     Status status;
     Client* client;
     int pizzaAmount;
@@ -15,6 +16,7 @@ public:
     Status getStatus() const;
     Client *getClient() const;
     int getPizzaAmount() const;
+    string getId();
 
     void setStatus(Status status);
 };
