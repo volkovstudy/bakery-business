@@ -1,19 +1,18 @@
 #ifndef BAKERY_BUSINESS_COURIER_H
 #define BAKERY_BUSINESS_COURIER_H
 
-#include "../Order/Order.h"
+#include "../Storage/Storage.h"
 
 class Courier {
 private:
     int trunkVolume;
-    Order* order;
+    Storage* storage;
 public:
-    explicit Courier(int trunkVolume);
+    Courier(int trunkVolume, Storage *storage);
+
+    void takeAndDeliverOrders();
 
     int getTrunkVolume() const;
-    Order *getOrder() const;
-
-    void setOrder(Order *order);
 };
 
 

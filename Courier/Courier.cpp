@@ -1,15 +1,31 @@
 #include "Courier.h"
 
-Courier::Courier(int trunkVolume) : trunkVolume(trunkVolume) {}
+Courier::Courier(int trunkVolume, Storage *storage) : trunkVolume(trunkVolume), storage(storage) {}
 
 int Courier::getTrunkVolume() const {
     return trunkVolume;
 }
 
-Order *Courier::getOrder() const {
-    return order;
-}
+void Courier::takeAndDeliverOrders() {
+    vector<Order*> orders;
 
-void Courier::setOrder(Order *order) {
-    Courier::order = order;
+    for (int i = 0; i < trunkVolume; ++i) {
+        Order* order = storage->getOrder();
+
+        if (order == nullptr) break;
+
+        order->setStatus(Status::DELIVERING);
+
+        orders.push_back(order);
+    }
+
+    if (orders.empty()) return;
+
+    for (int i = (int) orders.size() - 1; i >= 0; ++i) {
+        Order *order = orders.at(i);
+
+        order->setStatus(Status::DELIVERED);
+
+        orders.pop_back();
+    }
 }
