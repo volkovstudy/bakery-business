@@ -41,6 +41,8 @@ bool OrderProcessing::storeOrder(Order *order) {
 
     if (order->getStatus() != Status::STORED) return false;
 
+    cout << "Order #" << order->getId() << " is " << order->getStatus() << endl;
+
     return true;
 }
 
