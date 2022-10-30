@@ -1,10 +1,10 @@
 #include "OrderProcessing.h"
 
-#define startIdForBaker -1
+#define startIndex -1
 
 OrderProcessing::OrderProcessing(Staff *staff, Storage *storage) : staff(staff), storage(storage) {}
 
-int nextBakerIndex = startIdForBaker;
+int nextBakerIndex = startIndex;
 
 Baker* getNextBaker(vector<Baker*> bakers) {
     if (bakers.size() <= nextBakerIndex) {
