@@ -18,7 +18,7 @@ Order *Storage::getOrder() {
     if (orders.empty()) {
         return nullptr;
     } else {
-        lastOrderIndex = orders.size() - 1;
+        lastOrderIndex = (int) orders.size() - 1;
     }
 
     Order* order = orders.at(lastOrderIndex);
