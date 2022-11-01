@@ -15,6 +15,7 @@ public:
     void addOrder(Order *order);
 
     int getCapacity() const;
+    int getOccupancy() const;
     Order* getOrder();
 };
 

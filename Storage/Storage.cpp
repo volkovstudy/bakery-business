@@ -27,3 +27,7 @@ Order *Storage::getOrder() {
 
     return order;
 }
+
+int Storage::getOccupancy() const {
+    return occupancy;
+}
