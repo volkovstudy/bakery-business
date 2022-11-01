@@ -60,5 +60,16 @@ void OrderProcessing::deliverOrders() {
     vector<Courier*> couriers = staff->getCouriers();
     Courier* courier = getNextCourier(couriers);
 
-    courier->takeAndDeliverOrders();
+    while (storage->getOccupancy() != 0) {
+        vector<Order *> orders;
+
+        Order *tempOrder = storage->getOrder();
+        for (int i = 0; i < courier->getTrunkVolume() && tempOrder != nullptr; ++i) {
+            orders.push_back(tempOrder);
+
+            tempOrder = storage->getOrder();
+        }
+
+        courier->deliverOrders(orders);
+    }
 }
