@@ -1,7 +1,7 @@
 #ifndef BAKERY_BUSINESS_COURIER_H
 #define BAKERY_BUSINESS_COURIER_H
 
-#include "../Order/Order.h"
+#include "../Pizza/Pizza.h"
 
 class Courier {
 private:
@@ -9,7 +9,7 @@ private:
 public:
     Courier(int trunkVolume);
 
-    void deliverOrders(vector<Order *> orders);
+    void deliverPizzas(vector<Pizza *> pizzas);
 
     int getTrunkVolume() const;
 };
