@@ -1,8 +1,6 @@
-#include <thread>
-#include <chrono>
 #include "Baker.h"
+#include "../Utill/Utill.h"
 
-#define nanosecondsInOneSecond 1000000000
 #define secondsForOneWorkExperience 3
 
 Baker::Baker(int workExperience) : workExperience(workExperience) {}
@@ -23,7 +21,7 @@ void Baker::cook() const {
     getOrder()->setStatus(Status::COOKING);
 
     int delayTimeInSeconds = abs((int) (getWorkExperience() - secondsForOneWorkExperience));
-    this_thread::sleep_for(chrono::nanoseconds(delayTimeInSeconds * nanosecondsInOneSecond));
+    Utill::delay(delayTimeInSeconds);
 
     getOrder()->setStatus(Status::COOKED);
 }
