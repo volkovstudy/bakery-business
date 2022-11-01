@@ -46,7 +46,7 @@ string Order::getId() {
 }
 
 void Order::printStatus() {
-    cout << "Order #" << getId() << " is ";
+    cout << "#" << getId() << ": ";
     switch (status) {
         case ACCEPTED:
             cout << "ACCEPTED";
