@@ -1,5 +1,4 @@
 #include "OrderProcessing.h"
-#include <iostream>
 
 #define startIndex -1
 
@@ -29,9 +28,7 @@ void OrderProcessing::cookOrder(Order *order) {
     baker->setOrder(order);
     baker->cook();
 
-    if (order->getStatus() == Status::COOKED) {
-        cout << "Order #" << order->getId() << " is COOKED" << endl;
-    }
+    order->printStatus();
 }
 
 bool OrderProcessing::storeOrder(Order *order) {
@@ -41,7 +38,7 @@ bool OrderProcessing::storeOrder(Order *order) {
 
     if (order->getStatus() != Status::STORED) return false;
 
-    cout << "Order #" << order->getId() << " is STORED" << endl;
+    order->printStatus();
 
     return true;
 }
