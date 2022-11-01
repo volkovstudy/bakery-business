@@ -2,8 +2,6 @@
 
 #define startIndex -1
 
-using namespace std;
-
 OrderProcessing::OrderProcessing(Staff *staff, Storage *storage) : staff(staff), storage(storage) {}
 
 int nextBakerIndex = startIndex;
@@ -59,14 +57,36 @@ void OrderProcessing::deliverOrders() {
 
     while (storage->getOccupancy() != 0) {
         vector<Order *> orders;
+        vector<Pizza *> pizzas;
 
         Order *tempOrder = storage->getOrder();
-        for (int i = 0; i < courier->getTrunkVolume() && tempOrder != nullptr; ++i) {
-            orders.push_back(tempOrder);
+        while (tempOrder != nullptr) {
+            tempOrder->setStatus(Status::DELIVERING);
+            tempOrder->printStatus();
 
+            for (int j = 0; j < tempOrder->getPizzaAmount(); ++j) {
+                if (pizzas.size() == courier->getTrunkVolume()) {
+                    courier->deliverPizzas(pizzas);
+                    pizzas = *new vector<Pizza *>;
+                }
+
+                Pizza *pizza = new Pizza(tempOrder);
+                pizzas.push_back(pizza);
+            }
+
+            if (pizzas.size() == courier->getTrunkVolume()) {
+                courier->deliverPizzas(pizzas);
+            }
+
+            orders.push_back(tempOrder);
             tempOrder = storage->getOrder();
         }
 
-        courier->deliverOrders(orders);
+        for (int i = 0; i < orders.size(); ++i) {
+            Order order = *orders.at(i);
+
+            order.setStatus(Status::DELIVERED);
+            order.printStatus();
+        }
     }
 }
