@@ -13,6 +13,8 @@ private:
 public:
     Order(Status status, Client *client, int pizzaAmount);
 
+    void printStatus();
+
     Status getStatus() const;
     Client *getClient() const;
     int getPizzaAmount() const;

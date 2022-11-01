@@ -1,6 +1,9 @@
 #include "Order.h"
+#include <iostream>
 
 #define numbersInOrderId 6
+
+using namespace std;
 
 int idGenerator = 1;
 
@@ -40,4 +43,29 @@ string Order::getId() {
     result += to_string(id);
 
     return result;
+}
+
+void Order::printStatus() {
+    cout << "Order #" << getId() << " is ";
+    switch (status) {
+        case ACCEPTED:
+            cout << "ACCEPTED";
+            break;
+        case COOKING:
+            cout << "COOKING";
+            break;
+        case COOKED:
+            cout << "COOKED";
+            break;
+        case STORED:
+            cout << "STORED";
+            break;
+        case DELIVERING:
+            cout << "DELIVERING";
+            break;
+        case DELIVERED:
+            cout << "DELIVERED";
+            break;
+    }
+    cout << endl;
 }
