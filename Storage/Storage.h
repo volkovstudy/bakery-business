@@ -7,7 +7,7 @@
 class Storage {
 private:
     int capacity;
-    int occupancy{};
+    int occupancy;
     vector<Order*> orders;
 public:
     explicit Storage(int capacity);

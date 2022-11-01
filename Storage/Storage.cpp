@@ -1,6 +1,8 @@
 #include "Storage.h"
 
-Storage::Storage(int capacity) : capacity(capacity) {}
+Storage::Storage(int capacity) : capacity(capacity) {
+    occupancy = 0;
+}
 
 int Storage::getCapacity() const {
     return capacity;
