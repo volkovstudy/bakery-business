@@ -1,7 +1,10 @@
 #include "Baker.h"
 #include "../Utill/Utill.h"
+#include <iostream>
 
 #define secondsForOneWorkExperience 3
+
+using namespace std;
 
 Baker::Baker(int workExperience) : workExperience(workExperience) {}
 
@@ -19,9 +22,15 @@ void Baker::setOrder(Order *order) {
 
 void Baker::cook() const {
     getOrder()->setStatus(Status::COOKING);
+    getOrder()->printStatus();
 
-    int delayTimeInSeconds = abs((int) (getWorkExperience() - secondsForOneWorkExperience));
-    Utill::delay(delayTimeInSeconds);
+    int amountOfPizza = getOrder()->getPizzaAmount();
+    for (int i = 0; i < amountOfPizza; ++i) {
+        int delayTimeInSeconds = abs((int) (getWorkExperience() - secondsForOneWorkExperience));
+        Utill::delay(delayTimeInSeconds);
+
+        cout << "Order #" << getOrder()->getId() << ": Pizza №" << i+1 << " is ready" << endl;
+    }
 
     getOrder()->setStatus(Status::COOKED);
 }
