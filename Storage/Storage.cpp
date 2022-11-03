@@ -109,3 +109,12 @@ Pizza *Storage::getPizza() {
 bool Storage::isFull() {
     return occupancy == capacity;
 }
+
+bool Storage::isOrderFullyDelivered(Order *order) {
+    pair<int, int> orderStorageStatus = pizzas[order];
+
+    if (orderStorageStatus.second == -1)
+        return true;
+    else
+        return false;
+}

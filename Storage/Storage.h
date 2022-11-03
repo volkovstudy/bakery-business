@@ -16,6 +16,7 @@ public:
     explicit Storage(int capacity);
 
     bool isFull();
+    bool isOrderFullyDelivered(Order *order);
 
     void addOrder(Order *order);
     void addPizza(Pizza *pizza);
