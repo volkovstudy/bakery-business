@@ -105,3 +105,7 @@ Pizza *Storage::getPizza() {
 
     return result;
 }
+
+bool Storage::isFull() {
+    return occupancy == capacity;
+}

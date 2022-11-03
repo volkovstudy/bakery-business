@@ -15,6 +15,8 @@ private:
 public:
     explicit Storage(int capacity);
 
+    bool isFull();
+
     void addOrder(Order *order);
     void addPizza(Pizza *pizza);
 
