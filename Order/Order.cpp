@@ -57,6 +57,9 @@ void Order::printStatus() {
         case COOKED:
             cout << "COOKED";
             break;
+        case STORING:
+            cout << "IS TRYING TO STORE";
+            break;
         case STORED:
             cout << "STORED";
             break;
