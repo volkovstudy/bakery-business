@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project(bakery_business)
+project(bakery-business)
 
 set(CMAKE_CXX_STANDARD 14)
 
