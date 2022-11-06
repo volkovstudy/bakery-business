@@ -43,7 +43,7 @@ bool OrderProcessing::storeOrder(Order *order) {
 }
 
 Courier* getNextCourier(vector<Courier*> couriers) {
-    if (couriers.size() <= nextCourierIndex) {
+    if (((long) couriers.size()) <= nextCourierIndex + 1) {
         nextCourierIndex = 0;
     } else {
         nextCourierIndex++;
