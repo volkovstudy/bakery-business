@@ -3,6 +3,8 @@
 #include "OrderProcessing/OrderProcessing.h"
 #include "Utill/Utill.h"
 
+#define timeBetweenActionsInSeconds 1
+
 using namespace std;
 
 Staff *staff;
@@ -41,9 +43,9 @@ int main() {
     OrderProcessing *orderProcessing = new OrderProcessing(staff, storage);
 
     orderProcessing->cookOrder(order);
-    Utill::delay(1);
+    Utill::delay(timeBetweenActionsInSeconds);
     orderProcessing->storeOrder(order);
-    Utill::delay(1);
+    Utill::delay(timeBetweenActionsInSeconds);
     orderProcessing->deliverOrders();
 
     cout << endl << "Thanks for ordering pizza!" << endl;
