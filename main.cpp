@@ -72,21 +72,41 @@ void initializeStaff() {
     cout << "Amount: ";
     int amountOfBakers;
     cin >> amountOfBakers;
+    while (amountOfBakers <= 0) {
+        cout << endl << "Wrong. Amount should be greater than 0!" << endl;
+        cout << "Amount: ";
+        cin >> amountOfBakers;
+    }
 
     cout << endl << "Well. How many couriers?" << endl;
     cout << "Amount: ";
     int amountOfCouriers;
     cin >> amountOfCouriers;
+    while (amountOfCouriers <= 0) {
+        cout << endl << "Wrong. Amount should be greater than 0!" << endl;
+        cout << "Amount: ";
+        cin >> amountOfCouriers;
+    }
 
     cout << endl << "How big will their trunk be?" << endl;
     cout << "Capacity (in pizzas): ";
     int trunkVolume;
     cin >> trunkVolume;
+    while (trunkVolume <= 0) {
+        cout << endl << "Wrong. Capacity should be greater than 0!" << endl;
+        cout << "Capacity: ";
+        cin >> trunkVolume;
+    }
 
     cout << endl << "Great. How big will your storage be?" << endl;
     cout << "Storage capacity (pizza amount): ";
     int storageCapacity;
     cin >> storageCapacity;
+    while (storageCapacity <= 0) {
+        cout << endl << "Wrong. Capacity should be greater than 0!" << endl;
+        cout << "Capacity: ";
+        cin >> storageCapacity;
+    }
 
     storage = new Storage(storageCapacity);
 
