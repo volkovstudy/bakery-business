@@ -33,10 +33,20 @@ void OrderProcessing::cookOrder(Order *order) {
 bool OrderProcessing::storeOrder(Order *order) {
     if (order->getStatus() != Status::COOKED) return false;
 
-    storage->addOrder(order);
+    order->setStatus(Status::STORING);
+    order->printStatus();
 
-    if (order->getStatus() != Status::STORED) return false;
+    for (int i = 0; i < order->getPizzaAmount(); ++i) {
+        Pizza *pizza = new Pizza(order);
 
+        if (storage->isFull()) {
+            deliverOrders();
+        }
+
+        storage->addPizza(pizza);
+    }
+
+    order->setStatus(Status::STORED);
     order->printStatus();
 
     return true;
