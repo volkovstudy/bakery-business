@@ -67,38 +67,35 @@ void OrderProcessing::deliverOrders() {
     vector<Courier*> couriers = staff->getCouriers();
     Courier* courier = getNextCourier(couriers);
 
-    while (storage->getOccupancy() != 0) {
-        vector<Order *> orders;
-        vector<Pizza *> pizzas;
+    set<Order *> orders;
+    vector<Pizza *> pizzas;
 
-        Order *tempOrder = storage->getOrder();
-        while (tempOrder != nullptr) {
-            tempOrder->setStatus(Status::DELIVERING);
-            tempOrder->printStatus();
+    for (Pizza *tempPizza = storage->getPizza(); tempPizza != nullptr; tempPizza = storage->getPizza()) {
+        Order *order = tempPizza->getOrder();
 
-            for (int j = 0; j < tempOrder->getPizzaAmount(); ++j) {
-                if (pizzas.size() == courier->getTrunkVolume()) {
-                    courier->deliverPizzas(pizzas);
-                    pizzas = *new vector<Pizza *>;
-                }
-
-                Pizza *pizza = new Pizza(tempOrder);
-                pizzas.push_back(pizza);
-            }
-
-            if (pizzas.size() == courier->getTrunkVolume()) {
-                courier->deliverPizzas(pizzas);
-            }
-
-            orders.push_back(tempOrder);
-            tempOrder = storage->getOrder();
+        if (order->getStatus() != Status::DELIVERING) {
+            order->setStatus(Status::DELIVERING);
+            order->printStatus();
         }
 
-        for (int i = 0; i < orders.size(); ++i) {
-            Order order = *orders.at(i);
-
-            order.setStatus(Status::DELIVERED);
-            order.printStatus();
+        if (pizzas.size() == courier->getTrunkVolume()) {
+            courier->deliverPizzas(pizzas);
+            pizzas = *new vector<Pizza *>;
         }
+
+        pizzas.push_back(tempPizza);
+
+        if (pizzas.size() == courier->getTrunkVolume()) {
+            courier->deliverPizzas(pizzas);
+            pizzas = *new vector<Pizza *>;
+        }
+
+        orders.insert(order);
     }
+
+    if (!pizzas.empty()) {
+        courier->deliverPizzas(pizzas);
+    }
+
+    makeOrdersDelivered(orders, storage);
 }
