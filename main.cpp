@@ -20,6 +20,11 @@ int main() {
     cout << "Order some pizza: ";
     int pizzaAmount;
     cin >> pizzaAmount;
+    while (pizzaAmount <= 0) {
+        cout << endl << "You can order amount of pizza which is greater than 0." << endl;
+        cout << "Order some pizza: ";
+        cin >> pizzaAmount;
+    }
     cout << endl;
 
     cout << "Who is ordering (your fullname): ";
