@@ -83,6 +83,11 @@ Pizza *Storage::getPizza() {
     while (iterator != pizzas.end()) {
         pair<int, int> *p = &(iterator->second);
 
+        if (p->first == 0) {
+            ++iterator;
+            continue;
+        }
+
         if (p->second == endValue) {
             iterator++;
             continue;
