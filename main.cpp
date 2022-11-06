@@ -27,7 +27,7 @@ int main() {
     }
     cout << endl;
 
-    cout << "Who is ordering (your fullname): ";
+    cout << "Who is ordering (your name): ";
     string clientFullname;
     cin >> clientFullname;
     cout << endl;
