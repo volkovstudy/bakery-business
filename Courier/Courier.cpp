@@ -30,8 +30,8 @@ void Courier::deliverPizzas(vector<Pizza *> pizzas) {
         Order *order = i->first;
         int pizzaAmount = i->second;
 
-        cout << "Order #" << order->getId() << ": Delivering " << pizzaAmount << " pizza" << endl;
+        cout << "Order #" << order->getId() << ": Delivering " << pizzaAmount << " pizza..." << endl;
         Utill::delay(timeWhileDeliveringInSeconds);
-        cout << "Order #" << order->getId() << ": Delivered " << pizzaAmount << " pizza" << endl;
+        cout << "...Delivered" << endl;
     }
 }
