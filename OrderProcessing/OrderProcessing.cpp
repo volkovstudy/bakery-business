@@ -1,4 +1,5 @@
 #include "OrderProcessing.h"
+#include <set>
 
 #define startIndex -1
 
@@ -49,6 +50,17 @@ Courier* getNextCourier(vector<Courier*> couriers) {
     }
 
     return couriers.at(nextCourierIndex);
+}
+
+void makeOrdersDelivered(set<Order *> orders, Storage *storage) {
+    for (auto it = orders.begin(); it != orders.end(); ++it) {
+        Order *order = *it;
+
+        if (storage->isOrderFullyDelivered(order)) {
+            order->setStatus(Status::DELIVERED);
+            order->printStatus();
+        }
+    }
 }
 
 void OrderProcessing::deliverOrders() {
