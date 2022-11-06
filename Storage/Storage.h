@@ -18,12 +18,10 @@ public:
     bool isFull();
     bool isOrderFullyDelivered(Order *order);
 
-    void addOrder(Order *order);
     void addPizza(Pizza *pizza);
 
     int getCapacity() const;
     int getOccupancy() const;
-    Order* getOrder();
     Pizza *getPizza();
 };
 
